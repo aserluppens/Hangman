@@ -1,0 +1,107 @@
+import random
+
+
+
+dictionnaire = ['voiture', 'vanille', "abricot",'mandarine','velo','bateau',
+                'pyramide','permission','avion','chien','chat','hibou','sport',
+                'amour','famille','coco','fraise','pizza','malicieux']
+string2 = " "
+
+solution = random.choice(dictionnaire).upper()
+
+longueur = len(solution)
+
+tirets = ("_"*longueur)
+
+tirets = string2.join(tirets)
+
+liste_tirets = list(tirets)
+
+solution = string2.join(solution)
+
+liste = list(solution)
+
+print(tirets)
+
+string =""
+
+essais = 9
+while liste_tirets != liste and essais >0:
+    reponse = input("Pick a letter: ").upper()
+    if reponse not in liste:
+        essais -=1
+        
+    for i in range(len(liste)):
+        if reponse == liste[i]:
+            liste_tirets[i] = reponse
+        
+
+
+    print(string.join(liste_tirets))
+    
+    print("")
+
+    
+    if essais == 8:
+        print("---")
+    elif essais == 7:
+        print(' |')
+        print(' |')
+        print(' |')
+        print('---')
+    elif essais == 6:
+        print('____________')
+        print(' |')
+        print(' |')
+        print(' |')
+        print('---')
+    elif essais == 5:
+        print('____________')
+        print(' |         |')
+        print(' |')
+        print(' |')
+        print('---') 
+    elif essais == 4:
+        print('____________')
+        print(' |         |')
+        print(' |         O')
+        print(' |')
+        print('---')        
+    elif essais == 3:
+        print('____________')
+        print(' |         |')
+        print(' |         O')
+        print(' |         |')
+        print('---')
+    elif essais == 2:
+        print('____________')
+        print(' |         |')
+        print(' |         O')
+        print(' |        /|')
+        print('---') 
+    elif essais == 1:
+        print('____________')
+        print(' |         |')
+        print(' |         O')
+        print(' |        /|/')
+        print('---')
+    elif essais == 0:
+        print('____________')
+        print(' |         |')
+        print(' |         O')
+        print(' |        /|/')
+        print('---        M')
+
+          
+    print("")
+    if essais <9 and essais >1:
+        print ("Tries left: ", essais)
+    elif essais == 1:
+        print("Last try !")
+        
+        
+if essais >0:    
+    print ('Congrats ! You won !')
+else :
+    print('Too bad ! You loose !')
+    print ('The hidden word was: ', solution)
